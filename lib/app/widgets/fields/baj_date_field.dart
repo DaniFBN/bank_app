@@ -43,7 +43,7 @@ class _BajDateFieldState extends State<BajDateField> {
       label: widget.label,
       suffix: IconButton(
         onPressed: selectDate,
-        icon: Icon(Icons.calendar_month_outlined),
+        icon: const Icon(Icons.calendar_month_outlined),
       ),
     );
   }

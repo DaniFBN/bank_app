@@ -58,4 +58,6 @@ linter:
     - only_throw_errors
     - directives_ordering
     - prefer_relative_imports
+    - prefer_const_constructors
+    - use_build_context_synchronously
     - cascade_invocations: false

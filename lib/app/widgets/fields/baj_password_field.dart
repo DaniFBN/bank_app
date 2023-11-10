@@ -32,7 +32,7 @@ class _BajPasswordFieldState extends State<BajPasswordField> {
       label: widget.label,
       suffix: IconButton(
         onPressed: toggleObscure,
-        icon: Icon(Icons.calendar_month_outlined),
+        icon: const Icon(Icons.calendar_month_outlined),
       ),
     );
   }

@@ -66,13 +66,15 @@ class _RegisterPageState extends State<RegisterPage> {
       'number': '',
       'person_id': personID,
     });
+
+    Navigator.pushReplacementNamed(context, '/login');
   }
 
   @override
   Widget build(BuildContext context) {
     final now = DateTime.now();
-    final sixteenYearsAgo = now.subtract(Duration(days: 5840));
-    final oneHundredThirtyYearsAgo = now.subtract(Duration(days: 47450));
+    final sixteenYearsAgo = now.subtract(const Duration(days: 5840));
+    final oneHundredThirtyYearsAgo = now.subtract(const Duration(days: 47450));
 
     return Scaffold(
       appBar: AppBar(
@@ -80,7 +82,7 @@ class _RegisterPageState extends State<RegisterPage> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Column(
+        child: ListView(
           children: [
             BajTextField(
               controller: nameController,
@@ -100,8 +102,8 @@ class _RegisterPageState extends State<RegisterPage> {
               firstDate: oneHundredThirtyYearsAgo,
               lastDate: now,
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
+            const Padding(
+              padding: EdgeInsets.all(8.0),
               child: Divider(),
             ),
             BajTextField(
@@ -112,8 +114,8 @@ class _RegisterPageState extends State<RegisterPage> {
               controller: passwordController,
               label: 'Senha',
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
+            const Padding(
+              padding: EdgeInsets.all(8.0),
               child: Divider(),
             ),
             BajTextField(
@@ -132,7 +134,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     label: 'CEP',
                   ),
                 ),
-                SizedBox(width: 8),
+                const SizedBox(width: 8),
                 Expanded(
                   child: BajTextField(
                     controller: numberController,
@@ -149,7 +151,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     label: 'Cidade',
                   ),
                 ),
-                SizedBox(width: 8),
+                const SizedBox(width: 8),
                 Expanded(
                   child: BajTextField(
                     controller: stateController,
@@ -158,8 +160,8 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
               ],
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
+            const Padding(
+              padding: EdgeInsets.all(8.0),
               child: Divider(),
             ),
             DropdownButton<int>(
@@ -172,13 +174,13 @@ class _RegisterPageState extends State<RegisterPage> {
                 );
               }).toList(),
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
+            const Padding(
+              padding: EdgeInsets.all(8.0),
               child: Divider(),
             ),
             ElevatedButton(
               onPressed: register,
-              child: Text('Cadastrar'),
+              child: const Text('Cadastrar'),
             ),
           ],
         ),
