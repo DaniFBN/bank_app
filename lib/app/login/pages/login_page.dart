@@ -59,7 +59,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Register'),
+        title: const Text('Login'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -73,11 +73,15 @@ class _LoginPageState extends State<LoginPage> {
               controller: passwordController,
               label: 'Senha',
             ),
+            ElevatedButton(
+              onPressed: () => Navigator.pushNamed(context, '/register'),
+              child: const Text('Cadastrar'),
+            ),
             AnimatedBuilder(
               animation: widget.loginStore,
               child: ElevatedButton(
                 onPressed: login,
-                child: const Text('Cadastrar'),
+                child: const Text('Login'),
               ),
               builder: (_, child) {
                 switch (widget.loginStore.state) {

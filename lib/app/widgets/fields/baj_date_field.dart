@@ -1,4 +1,3 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
 import 'baj_text_field.dart';
@@ -10,12 +9,14 @@ class BajDateField extends StatefulWidget {
     required this.initialDate,
     required this.firstDate,
     required this.lastDate,
+    required this.onChanged,
   });
 
   final String label;
   final DateTime initialDate;
   final DateTime firstDate;
   final DateTime lastDate;
+  final void Function(DateTime) onChanged;
 
   @override
   State<BajDateField> createState() => _BajDateFieldState();
@@ -34,6 +35,8 @@ class _BajDateFieldState extends State<BajDateField> {
 
     if (date == null) return;
     controller.text = date.toString();
+
+    widget.onChanged(date);
   }
 
   @override
