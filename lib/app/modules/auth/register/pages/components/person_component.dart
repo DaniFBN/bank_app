@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../widgets/fields/baj_date_field.dart';
-import '../../../widgets/fields/baj_text_field.dart';
+import '../../../../../widgets/fields/baj_date_field.dart';
+import '../../../../../widgets/fields/baj_text_field.dart';
 
 class PersonComponent extends StatefulWidget {
   const PersonComponent({

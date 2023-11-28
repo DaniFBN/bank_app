@@ -8,6 +8,8 @@ class BajTextField extends StatefulWidget {
     this.isRequired = false,
     this.validator,
     this.suffix,
+    this.prefixIcon,
+    this.borderColor,
   });
 
   final TextEditingController controller;
@@ -15,6 +17,8 @@ class BajTextField extends StatefulWidget {
   final bool isRequired;
   final String? Function(String value)? validator;
   final Widget? suffix;
+  final Widget? prefixIcon;
+  final Color? borderColor;
 
   @override
   State<BajTextField> createState() => _BajTextFieldState();
@@ -35,12 +39,29 @@ class _BajTextFieldState extends State<BajTextField> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
+    final defaultBorder = OutlineInputBorder(
+      borderRadius: const BorderRadius.all(Radius.circular(50)),
+      borderSide: BorderSide(color: widget.borderColor ?? theme.primaryColor),
+    );
+
     return TextFormField(
       controller: widget.controller,
       validator: validator,
       decoration: InputDecoration(
         labelText: widget.label,
         suffix: widget.suffix,
+        prefixIcon: widget.prefixIcon,
+        enabledBorder: defaultBorder,
+        border: defaultBorder,
+        focusedBorder: OutlineInputBorder(
+          borderRadius: const BorderRadius.all(Radius.circular(50)),
+          borderSide: BorderSide(
+            color: widget.borderColor ?? theme.primaryColor,
+            width: 2,
+          ),
+        ),
       ),
     );
   }

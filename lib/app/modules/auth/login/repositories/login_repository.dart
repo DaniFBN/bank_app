@@ -1,4 +1,4 @@
-import '../../services/local_storage/i_local_storage.dart';
+import '../../../../core/shared/services/local_storage/i_local_storage.dart';
 
 class LoginRepository {
   const LoginRepository(this._localStorage);
@@ -10,7 +10,7 @@ class LoginRepository {
 
     for (final user in users) {
       if (user['email'] == email) {
-        if (user['password'] == password) return true;
+        if (user['senha'] == password) return true;
         return false;
       }
     }

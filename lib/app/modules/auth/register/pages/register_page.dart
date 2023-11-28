@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../account_type.dart';
-import '../../widgets/fields/baj_text_field.dart';
+import '../../../../account_type.dart';
+import '../../../../widgets/fields/baj_text_field.dart';
 import '../register_param.dart';
 import '../stores/register_state.dart';
 import '../stores/register_store.dart';
@@ -80,11 +80,13 @@ class _RegisterPageState extends State<RegisterPage> {
         padding: const EdgeInsets.all(8.0),
         child: ListView(
           children: [
-            const Card(
+            Card(
               child: ExpansionTile(
-                title: Text('Person Form'),
+                title: const Text('Person Form'),
                 children: [
-                  PersonComponent(),
+                  PersonComponent(
+                    onClose: () => false,
+                  ),
                 ],
               ),
             ),

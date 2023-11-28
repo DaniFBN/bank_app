@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../widgets/fields/baj_text_field.dart';
+import '../../../../widgets/fields/baj_text_field.dart';
 import '../stores/login_store.dart';
 import '../stores/states/login_state.dart';
 
@@ -69,10 +69,13 @@ class _LoginPageState extends State<LoginPage> {
               controller: emailController,
               label: 'Email',
             ),
+            const SizedBox(height: 12),
             BajTextField(
               controller: passwordController,
               label: 'Senha',
+              borderColor: Colors.pink,
             ),
+            const SizedBox(height: 12),
             ElevatedButton(
               onPressed: () => Navigator.pushNamed(context, '/register'),
               child: const Text('Cadastrar'),

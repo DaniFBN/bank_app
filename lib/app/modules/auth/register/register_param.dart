@@ -1,4 +1,4 @@
-import '../account_type.dart';
+import '../../../account_type.dart';
 
 class RegisterParam {
   final String name;

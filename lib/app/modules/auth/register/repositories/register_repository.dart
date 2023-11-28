@@ -1,4 +1,4 @@
-import '../../services/local_storage/i_local_storage.dart';
+import '../../../../core/shared/services/local_storage/i_local_storage.dart';
 import '../register_param.dart';
 
 class RegisterRepository {
