@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../widgets/fields/baj_text_field.dart';
+import '../../../../../widgets/fields/baj_text_field.dart';
+import '../../domain/params/login_param.dart';
 import '../stores/login_store.dart';
 import '../stores/states/login_state.dart';
 
@@ -21,17 +22,20 @@ class _LoginPageState extends State<LoginPage> {
   final passwordController = TextEditingController();
 
   void login() async {
-    await widget.loginStore.login(
-      emailController.text,
-      passwordController.text,
+    final param = LoginParam(
+      email: emailController.text,
+      password: passwordController.text,
     );
+
+    await widget.loginStore.login(param);
   }
 
   void loginListener() {
-    switch (widget.loginStore.state) {
+    final state = widget.loginStore.state;
+    switch (state) {
       case FailureLoginState():
         final messenger = ScaffoldMessenger.of(context);
-        final snackbar = const SnackBar(content: Text('Erro ao autenticar'));
+        final snackbar = SnackBar(content: Text(state.message));
         messenger.showSnackBar(snackbar);
       case LoggedLoginState():
         Navigator.of(context).pushReplacementNamed('/');
@@ -74,6 +78,7 @@ class _LoginPageState extends State<LoginPage> {
               controller: passwordController,
               label: 'Senha',
               borderColor: Colors.pink,
+              validator: (_) => 'Email inválido',
             ),
             const SizedBox(height: 12),
             ElevatedButton(

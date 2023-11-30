@@ -26,3 +26,20 @@ Page
 Model?
 Gerencia de estado
 Service - LocalStorage
+
+Flutterando
+ResoCoder
+
+
+
+domain -> Regra de negócio
+infra -> Tratar o que vem e o que vai
+external -> Acessa os dados(Service[API, Bluetooth, LocalStorage])
+presenter -> Tela e Gerencia de estado
+
+service -> abstração
+
+CasoDeUso(Domain)
+  PersonRepository(Infra)
+    PersonDatasource(External)
+      HttpService(Core)

@@ -11,7 +11,9 @@ class LoadingLoginState extends LoginState {
 }
 
 class FailureLoginState extends LoginState {
-  const FailureLoginState();
+  final String message;
+
+  const FailureLoginState(this.message);
 }
 
 class LoggedLoginState extends LoginState {
